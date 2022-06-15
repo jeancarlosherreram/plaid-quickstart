@@ -108,8 +108,10 @@ configuration = plaid.Configuration(
         'clientId': PLAID_CLIENT_ID,
         'secret': PLAID_SECRET,
         'plaidVersion': '2020-09-14'
-    }
+    },
 )
+configuration.verify_ssl = False
+configuration.proxy = "http://klientkache.3d.prci.com:8080"
 
 api_client = plaid.ApiClient(configuration)
 client = plaid_api.PlaidApi(api_client)
